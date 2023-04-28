@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Find Ports</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <ionic-pick [(ngModel)]="country" itemValueField="id"
+      itemTextField="name" [items]="countries" [canSearch]="true"
+      (onChange)="countryChange($event)">
+      <ng-template ionicPickItemEndTemplate let-country="item">
+        <img class="country-flag" [src]="country.flagUrl" />
+      </ng-template>
+      <ng-template ionicPickValueTemplate let-country="value">
+        <div class="ionic-pick-value-item">
+          <img class="country-flag" [src]="country.flagUrl" />
+          {{country.name}}
+        </div>
+      </ng-template>
+    </ionic-pick>
+  </ion-item>
+  <ion-item>
+    <ion-label>Port</ion-label>
+    <ionic-pick [(ngModel)]="port" itemValueField="id"
+      itemTextField="name" [items]="ports" [canSearch]="true" [canClear]="true"
+      (onSearch)="searchPorts($event)">
+      <ng-template ionicPickItemEndTemplate let-port="item">
+        <ion-badge color="light" *ngIf="port.timeZone">
+          UTC{{portService.formatTimeZone(port.timeZone)}}
+        </ion-badge>
+      </ng-template>
+    </ionic-pick>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Use cases</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item lines="full">
+    <ion-label class="ion-text-wrap">
+      Usage with Ionic <b>Label</b>.
+    </ion-label>
+  </ion-item>
+  <ion-item-group>
+    <ion-list-header color="light">Empty</ion-list-header>
+    <ion-item>
+      <ionic-pick [(ngModel)]="portEmpty" itemValueField="id"
+        itemTextField="name" [items]="ports" [canClear]="true">
+      </ionic-pick>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="portEmptyNative">
+        <ion-select-option [value]="ports[0].id">{{ports[0].name}}
+        </ion-select-option>
+        <ion-select-option [value]="ports[1].id">{{ports[1].name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-list-header color="light">Default</ion-list-header>
+    <ion-item>
+      <ion-label>Port</ion-label>
+      <ionic-pick [(ngModel)]="portDefault" itemValueField="id"
+        itemTextField="name" [items]="ports" [canClear]="true">
+      </ionic-pick>
+    </ion-item>
+    <ion-item>
+      <ion-label>Port</ion-label>
+      <ion-select [(ngModel)]="portDefaultNative">
+        <ion-select-option [value]="ports[0].id">{{ports[0].name}}
+        </ion-select-option>
+        <ion-select-option [value]="ports[1].id">{{ports[1].name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-list-header color="light">Fixed</ion-list-header>
+    <ion-item>
+      <ion-label position="fixed">Port</ion-label>
+      <ionic-pick [(ngModel)]="portFixed" itemValueField="id"
+        itemTextField="name" [items]="ports" [canClear]="true">
+      </ionic-pick>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Port</ion-label>
+      <ion-select [(ngModel)]="portFixedNative">
+        <ion-select-option [value]="ports[0].id">{{ports[0].name}}
+        </ion-select-option>
+        <ion-select-option [value]="ports[1].id">{{ports[1].name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-list-header color="light">Stacked</ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Port</ion-label>
+      <ionic-pick [(ngModel)]="portStacked" itemValueField="id"
+        itemTextField="name" [items]="ports" [canClear]="true">
+      </ionic-pick>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Port</ion-label>
+      <ion-select [(ngModel)]="portStackedNative">
+        <ion-select-option [value]="ports[0].id">{{ports[0].name}}
+        </ion-select-option>
+        <ion-select-option [value]="ports[1].id">{{ports[1].name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-list-header color="light">Floating</ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Port</ion-label>
+      <ionic-pick [(ngModel)]="portFloating" itemValueField="id"
+        itemTextField="name" [items]="ports" [canClear]="true">
+      </ionic-pick>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Port</ion-label>
+      <ion-select [(ngModel)]="portFloatingNative">
+        <ion-select-option [value]="ports[0].id">{{ports[0].name}}
+        </ion-select-option>
+        <ion-select-option [value]="ports[1].id">{{ports[1].name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-item>
+    <ion-button (click)="clear()">
+      Clear
+    </ion-button>
+  </ion-item>
+</ion-content>

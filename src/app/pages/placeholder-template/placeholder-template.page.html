@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Templates</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item lines="full">
+    <a href="{{'placeholder-template' | wikiUrl}}">
+      GitHub
+    </a>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label class="ion-text-wrap">
+      Setting placeholder template.
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ionic-pick #portComponent [(ngModel)]="port" itemValueField="id"
+      itemTextField="name" [items]="ports">
+      <ng-template ionicPickTitleTemplate>
+        Port
+      </ng-template>
+      <ng-template ionicPickPlaceholderTemplate>
+        Port <span style="color: black;">(Dry)</span>
+      </ng-template>
+    </ionic-pick>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="portComponent.clear()">Clear</ion-button>
+  </ion-item>
+</ion-content>

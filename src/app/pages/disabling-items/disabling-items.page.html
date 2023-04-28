@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Use cases</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item lines="full">
+    <a href="{{'disableditems' | wikiUrl}}">
+      GitHub
+    </a>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label class="ion-text-wrap">
+      Usage of <b>disabledItems</b> for mutually exclusive values.<br />
+      In the sample below selected loading ports will not be available for
+      selection in discharging ports and vice versa.
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Loading Ports</ion-label>
+    <ionic-pick #loadingPortsComponent [(ngModel)]="loadingPorts"
+      itemValueField="id" itemTextField="name" [items]="ports" [canClear]="true"
+      [isMultiple]="true" (onChange)="loadingPortChange($event)"
+      [disabledItems]="disabledLoadingPorts">
+    </ionic-pick>
+  </ion-item>
+  <ion-item>
+    <ion-label>Discharging Ports</ion-label>
+    <ionic-pick #dischargingPortsComponent [(ngModel)]="dischargingPorts"
+      itemValueField="id" itemTextField="name" [items]="ports" [canClear]="true"
+      [isMultiple]="true" (onChange)="dischargingPortChange($event)"
+      [disabledItems]="disabledDischargingPorts">
+    </ionic-pick>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="clear()">
+      Clear
+    </ion-button>
+  </ion-item>
+</ion-content>

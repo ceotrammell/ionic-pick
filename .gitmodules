@@ -1,0 +1,5 @@
+[submodule "heroku"]
+	path = heroku
+	url = https://git.heroku.com/ionic-pick.git
+[submodule "DbConnector"]
+	branch = master
