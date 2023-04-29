@@ -90,7 +90,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
   private _ionLabelElement: any;
   private _hasIonLabel = false;
   private _ionLabelPosition: 'fixed' | 'stacked' | 'floating' | 'default' | null = null;
-  private _label: string = null;
+  private _label: string = '';
   private get _hasInfiniteScroll(): boolean {
     return this.isEnabled && this._modalComponent &&
       this._modalComponent._infiniteScroll ? true : false;
@@ -242,7 +242,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  modalCssClass: string = null;
+  modalCssClass: string = '';
 
   /**
    * Modal enter animation.
@@ -252,7 +252,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  modalEnterAnimation: AnimationBuilder = null;
+  modalEnterAnimation: AnimationBuilder;
 
   /**
    * Modal leave animation.
@@ -262,7 +262,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  modalLeaveAnimation: AnimationBuilder = null;
+  modalLeaveAnimation: AnimationBuilder;
 
   /**
    * Determines whether Modal is opened.
@@ -313,7 +313,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  itemValueField: string = null;
+  itemValueField: string = '';
 
   /**
    * Item property to display, e.g, `'name'`.
@@ -324,7 +324,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  itemTextField: string = null;
+  itemTextField: string = '';
 
   /**
    *
@@ -336,7 +336,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  groupValueField: string = null;
+  groupValueField: string = '';
 
   /**
 * Group property to display, e.g. `'country.name'`.
@@ -347,7 +347,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
 * @memberof IonicPickComponent
 */
   @Input()
-  groupTextField: string = null;
+  groupTextField: string = '';
 
   /**
    * Determines whether to show Searchbar.
@@ -441,7 +441,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  placeholder: string = null;
+  placeholder: string = '';
 
   /**
    * Determines whether multiple items can be selected.
@@ -528,7 +528,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  headerColor: string = null;
+  headerColor: string = '';
 
   /**
    * Group color. [Ionic colors](https://ionicframework.com/docs/theming/advanced#colors) are supported.
@@ -538,7 +538,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
    * @memberof IonicPickComponent
    */
   @Input()
-  groupColor: string = null;
+  groupColor: string = '';
 
   /**
    * Close button slot. [Ionic slots](https://ionicframework.com/docs/api/buttons) are supported.
@@ -902,7 +902,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
 
   _formatItem(item: any): string {
     if (this._isNullOrWhiteSpace(item)) {
-      return null;
+      return '';
     }
 
     return this.itemTextField ? item[this.itemTextField] : item.toString();
@@ -951,7 +951,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
       this._emitSearch();
     } else {
       // Default filtering.
-      let groups = [];
+      let groups: Array<any> = [];
 
       if (!this._searchText || !this._searchText.trim()) {
         groups = this._groups;
@@ -959,7 +959,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
         const filterText = this._searchText.trim().toLowerCase();
 
         this._groups.forEach(group => {
-          const items = group.items.filter(item => {
+          const items = group.items.filter((item: any) => {
             const itemText = (this.itemTextField ?
               item[this.itemTextField] : item).toString().toLowerCase();
             return itemText.indexOf(filterText) !== -1;
@@ -990,7 +990,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
 
   _isItemDisabled(item: any): boolean {
     if (!this.disabledItems) {
-      return;
+      return true;
     }
 
     return this.disabledItems.some(_item => {
@@ -1013,7 +1013,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
   }
 
   _deleteSelectedItem(item: any) {
-    let itemToDeleteIndex;
+    let itemToDeleteIndex = 0;
 
     this._selectedItems.forEach((selectedItem, itemIndex) => {
       if (
@@ -1123,8 +1123,9 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
   }
 
   _setItemsToConfirm(items: any[]) {
+    let itemsBlank: Array<any> = [];
     // Return a copy of original array, so it couldn't be changed from outside.
-    this._itemsToConfirm = [].concat(items);
+    this._itemsToConfirm = itemsBlank.concat(items);
   }
 
   _doSelect(selectedItem: any) {
@@ -1193,8 +1194,8 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
     return this._ionLabelElement ? this._ionLabelElement.textContent : null;
   }
 
-  private _areGroupsEmpty(groups) {
-    return groups.length === 0 || groups.every(group => {
+  private _areGroupsEmpty(groups: any) {
+    return groups.length === 0 || groups.every((group: any) => {
       return !group.items || group.items.length === 0;
     });
   }
@@ -1431,7 +1432,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
     // Remove deleted item from value.
     if (this.value) {
       if (this.isMultiple) {
-        const values = this.value.filter(value => {
+        const values = this.value.filter((value: any) => {
           return value.id !== item.id;
         });
 
@@ -1639,7 +1640,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
 
       // Toggle specific items.
       if (hasItems) {
-        itemsToToggle = itemsToToggle.filter(itemToToggle => {
+        itemsToToggle = itemsToToggle.filter((itemToToggle: any) => {
           return items.find(item => {
             return this._getItemValue(itemToToggle) === this._getItemValue(item);
           }) !== undefined;
@@ -1651,7 +1652,7 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
         }
       }
 
-      itemsToToggle.forEach(item => {
+      itemsToToggle.forEach((item: any) => {
         this._addSelectedItem(item);
       });
     } else {
