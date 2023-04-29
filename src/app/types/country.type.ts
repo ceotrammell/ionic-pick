@@ -1,5 +1,9 @@
+import { Observable } from 'rxjs';
 import { ICountry } from './country.interface';
 import { IPort } from './port.interface';
+import { HttpClient } from '@angular/common/http';
+
+let httpClient: HttpClient;
 
 export class Country implements ICountry {
   id: number;
@@ -7,7 +11,9 @@ export class Country implements ICountry {
   flag?: string;
   ports?: IPort[];
   get flagUrl(): string {
-    return `https://lipis.github.io/flag-icon-css/flags/4x3/${this.flag}.svg`;
+    var img = new Image();
+    img.src = `https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/${this.flag}.svg`;
+    return img.src;
   }
 
   constructor(country: ICountry) {
