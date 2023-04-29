@@ -36,6 +36,8 @@ export { IonicPickTitleTemplateDirective } from './ionic-pick-title-template.dir
 export { IonicPickValueTemplateDirective } from './ionic-pick-value-template.directive';
 export { IonicPickIconTemplateDirective } from './ionic-pick-icon-template.directive';
 export { IonicPickComponent } from './ionic-pick.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 
 const components = [IonicPickComponent, IonicPickModalComponent],
   directives = [
@@ -60,7 +62,9 @@ const components = [IonicPickComponent, IonicPickModalComponent],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule
+    IonicModule,
+    ScrollingModule,
+    CdkVirtualScrollViewport,
   ],
   declarations: [
     ...components,

@@ -3,7 +3,7 @@ const gulp = require('gulp'),
   rename = require('gulp-rename'),
   jsonEditor = require('gulp-json-editor'),
   fs = require('fs'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('sass')),
   path = require('path'),
   ngPackagr = require('ng-packagr'),
   ngPackagePath = path.normalize(path.join(__dirname, './ng-package.json')),
@@ -22,14 +22,14 @@ const gulp = require('gulp'),
       root: 'dist/',
       package: 'dist/package.json',
       bundles: {
-        root: 'dist/bundles/',
-        file: `dist/bundles/${packageConfig.name}.umd.js`,
-        mapFile: `dist/bundles/${packageConfig.name}.umd.js.map`,
-        minFile: `${packageConfig.name}.umd.min.js`,
+        root: 'dist/fesm2020/',
+        file: `dist/fesm2020/${packageConfig.name}.mjs`,
+        mapFile: `dist/fesm2020/${packageConfig.name}.mjs.map`,
+        minFile: `${packageConfig.name}.min.js`,
       },
       esm2015: {
-        root: 'dist/esm2015/',
-        file: `dist/esm2015/${packageConfig.name}.js`,
+        root: 'dist/fesm2015/',
+        file: `dist/fesm2015/${packageConfig.name}.mjs`,
         minFile: `${packageConfig.name}.min.js`,
       },
     },
@@ -115,7 +115,7 @@ async function modifyPackageJson() {
       .pipe(
         jsonEditor(function (json) {
           json.main = `bundles/${paths.dist.bundles.minFile}`;
-          json.es2015 = `esm2015/${paths.dist.esm2015.minFile}`;
+          json.es2015 = `fesm2015/${paths.dist.esm2015.minFile}`;
           delete json.cordova;
           delete json.devDependencies;
           delete json.dependencies;
