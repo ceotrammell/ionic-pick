@@ -1,0 +1,10 @@
+<ion-toolbar>
+  <ion-title>Dark Mode</ion-title>
+</ion-toolbar>
+
+<ion-content [scrollX]="false" [scrollY]="false">
+  <ion-item lines="none" class="ion-item-transparent">
+    <ion-text slot="start">Dark Mode</ion-text>
+    <ion-toggle [checked]="isDarkMode" (ionChange)="toggleDarkTheme($event)" slot="end"></ion-toggle>
+  </ion-item>
+</ion-content>

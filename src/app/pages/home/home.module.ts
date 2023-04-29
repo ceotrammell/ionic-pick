@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
+import { DarkModeComponent } from '../../components/generics/dark-mode/dark-mode.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,11 @@ import { HomePage } from './home.page';
     }])
   ],
   declarations: [
-    HomePage
+    HomePage,
+    DarkModeComponent,
+  ],
+  exports: [
+    DarkModeComponent,
   ]
 })
 export class HomePageModule { }

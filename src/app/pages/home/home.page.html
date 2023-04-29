@@ -1,11 +1,20 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Ionic Pick
     </ion-title>
+    <ion-button slot="end" (click)="darkModeModal()" class="dark-mode-button" fill="clear">
+      <ion-icon class="dark-mode-icon" slot="icon-only" name="bulb-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ionic Pick</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-list>
     <ion-item-group>
       <ion-list-header color="light">Use cases</ion-list-header>
