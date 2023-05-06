@@ -28,11 +28,11 @@ export class CascadingPage implements OnInit {
   }) {
     if (event.value) {
       this.ports = this.portService.getPorts().filter(port => {
-        return port.country.id === event.value.id;
+        return port.country?.id === event.value.id;
       });
     } else {
       this.ports = [];
-      this.port = null;
+      this.port = null!;
     }
   }
 }

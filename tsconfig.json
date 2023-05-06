@@ -1,34 +1,33 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
-    "strict": false, 
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "strict": false,
+    "strictPropertyInitialization": false,
     "strictNullChecks": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2022",
-    "module": "esnext",
-    "lib": [
-      "es2018", 
-      "dom"
-    ],
-    "allowSyntheticDefaultImports": true
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
   },
-  "include": [
-    "src/**/*.ts"
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
+    }
   ],
-  "exclude": [
-    "node_modules",
-    "ionic-pick"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "extends": "./tsconfig.base.json"
 }

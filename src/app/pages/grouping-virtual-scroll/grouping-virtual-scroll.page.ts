@@ -18,12 +18,16 @@ export class GroupingVirtualScrollPage implements OnInit {
   ngOnInit() {
     this.ports = this.portService.getPorts();
   }
-
+  
   getGroupText(port: Port, portIndex: number, ports: Port[]) {
-    if (portIndex === 0 || port.country.id !== ports[portIndex - 1].country.id) {
-      return port.country.name;
+    if (portIndex === 0 || port.country?.id !== ports[portIndex - 1].country?.id) {
+      return port.country?.name;
     }
 
+    return null;
+  }
+
+  getGroupText2() {
     return null;
   }
 }

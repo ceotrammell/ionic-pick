@@ -5,7 +5,7 @@ export class Port implements IPort {
   id: number;
   name: string;
   country?: ICountry;
-  timeZone: number;
+  timeZone?: number;
 
   constructor(port: IPort) {
     this.id = port.id;

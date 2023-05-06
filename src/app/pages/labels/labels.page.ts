@@ -29,15 +29,15 @@ export class LabelsPage implements OnInit {
   }
 
   clear() {
-    this.portEmpty = null;
-    this.portEmptyNative = null;
-    this.portDefault = null;
-    this.portDefaultNative = null;
-    this.portFixed = null;
-    this.portFixedNative = null;
-    this.portStacked = null;
-    this.portStackedNative = null;
-    this.portFloating = null;
-    this.portFloatingNative = null;
+    this.portEmpty = null!;
+    this.portEmptyNative = null!;
+    this.portDefault = null!;
+    this.portDefaultNative = null!;
+    this.portFixed = null!;
+    this.portFixedNative = null!;
+    this.portStacked = null!;
+    this.portStackedNative = null!;
+    this.portFloating = null!;
+    this.portFloatingNative = null!;
   }
 }

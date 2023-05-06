@@ -1,0 +1,41 @@
+<div class="ionic-pick-inner">
+  <div class="ionic-pick-value">
+    <div *ngIf="valueTemplate && _valueItems.length && isMultiple"
+      [ngTemplateOutlet]="valueTemplate"
+      [ngTemplateOutletContext]="{ value: _valueItems }">
+    </div>
+    <div class="ionic-pick-value-item"
+      *ngIf="valueTemplate && _valueItems.length && !isMultiple">
+      <div [ngTemplateOutlet]="valueTemplate"
+        [ngTemplateOutletContext]="{ value: _valueItems[0] }">
+      </div>
+    </div>
+    <span *ngIf="!valueTemplate && _valueItems.length">
+      <div class="ionic-pick-value-item"
+        *ngFor="let valueItem of _valueItems">
+        {{_formatValueItem(valueItem)}}
+      </div>
+    </span>
+    <div *ngIf="_hasPlaceholder && placeholderTemplate"
+      class="ionic-pick-value-item">
+      <div [ngTemplateOutlet]="placeholderTemplate">
+      </div>
+    </div>
+    <div class="ionic-pick-value-item"
+      *ngIf="_hasPlaceholder && !placeholderTemplate">
+      {{placeholder}}
+    </div>
+    <!-- Fix icon allignment when there's no value or placeholder. -->
+    <span *ngIf="!_valueItems.length && !_hasPlaceholder">&nbsp;</span>
+  </div>
+  <div *ngIf="iconTemplate" class="ionic-pick-icon-template">
+      <div [ngTemplateOutlet]="iconTemplate"></div>
+  </div>
+  <div *ngIf="!iconTemplate" class="ionic-pick-icon">
+    <div class="ionic-pick-icon-inner"></div>
+  </div>
+  <!-- Need to be type="button" otherwise click event triggers form ngSubmit. -->
+  <button class="ionic-pick-cover" [disabled]="!isEnabled"
+    (click)="_click()" type="button">
+  </button>
+</div>

@@ -254,7 +254,7 @@ export class PortService {
   private portsObservable: Observable<Port[]>;
 
   getCountries(page?: number, size?: number): Country[] {
-    let countries = [];
+    let countries: Array<any> = [];
 
     if (page && size) {
       countries = this.countries.slice((page - 1) * size, ((page - 1) * size) + size);
@@ -266,10 +266,10 @@ export class PortService {
   }
 
   getPorts(page?: number, size?: number): Port[] {
-    let ports = [];
+    let ports: Array<any> = [];
 
     this.countries.forEach(country => {
-      country.ports.forEach(port => {
+      country.ports?.forEach((port: any) => {
         port.country = country;
         ports.push(port);
       });
@@ -297,7 +297,7 @@ export class PortService {
 
     this.portsObservable.subscribe(() => {
       // Remove completed observable.
-      this.portsObservable = null;
+      this.portsObservable = null!;
     });
 
     return this.portsObservable;
@@ -306,7 +306,7 @@ export class PortService {
   filterPorts(ports: Port[], text: string): Port[] {
     return ports.filter(port => {
       return port.name.toLowerCase().indexOf(text) !== -1 ||
-        port.country.name.toLowerCase().indexOf(text) !== -1;
+        port.country?.name.toLowerCase().indexOf(text) !== -1;
     });
   }
 
@@ -318,9 +318,12 @@ export class PortService {
 
   addPort(port: Port) {
     port.id = this.getNewPortId();
-    this.countries.find(country => {
-      return country.id === port.country.id;
-    }).ports.push(port);
+    const country = this.countries.find((country: any) => {
+      return country?.id === port.country?.id;
+    });
+    if (country && country.ports) {
+      country.ports.push(port);
+    }
   }
 
   addPortAsync(port: Port, timeout = 1000): Observable<any> {
@@ -335,7 +338,7 @@ export class PortService {
 
   deletePort(port: Port) {
     const country = this.countries.find(_country => {
-      return _country.id === port.country.id;
+      return _country.id === port.country?.id;
     });
 
     if (country && country.ports) {

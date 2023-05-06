@@ -1,0 +1,50 @@
+{
+  "name": "ionic-pick-angular",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ionic-pick-angular/src",
+  "prefix": "ionic-pick",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "ionic-pick-angular/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "ionic-pick-angular/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "ionic-pick-angular/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "ionic-pick-angular/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "ionic-pick-angular/**/*.ts",
+          "ionic-pick-angular/**/*.html"
+        ]
+      }
+    }
+  }
+}

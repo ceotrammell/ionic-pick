@@ -31,20 +31,20 @@ export class StorageService {
 
   async getItem(key: string) {
     await this.ensureStore();
-    return await this._storage.get(key);
+    return await this._storage?.get(key);
   }
 
   async setItem(key: string, value: any): Promise<any> {
     await this.ensureStore();
     if (!value)
       return;
-    return await this._storage.set(key, value);
+    return await this._storage?.set(key, value);
   }
 
   async removeItem(key: string): Promise<void> {
     return new Promise<any>(async (resolve) => {
       await this.ensureStore();
-      this._storage.remove(key).then(value => {
+      this._storage?.remove(key).then(value => {
         resolve(value);
       }).catch(() => {
         resolve(null);
@@ -52,8 +52,8 @@ export class StorageService {
     });
   }
 
-  clearAll(): Promise<void> {
-    return this._storage.clear();
+  async clearAll(): Promise<void> {
+    return await this._storage?.clear();
   }
 
 }

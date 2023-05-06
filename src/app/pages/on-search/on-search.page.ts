@@ -25,7 +25,7 @@ export class OnSearchPage implements OnInit {
   filterPorts(ports: Port[], text: string) {
     return ports.filter(port => {
       return port.name.toLowerCase().indexOf(text) !== -1 ||
-        port.country.name.toLowerCase().indexOf(text) !== -1 ||
+        port.country?.name.toLowerCase().indexOf(text) !== -1 ||
         port.id.toString().toLowerCase().indexOf(text) !== -1;
     });
   }
