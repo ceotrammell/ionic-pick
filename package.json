@@ -1,6 +1,6 @@
 {
   "name": "ionic-pick",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "title": "Ionic Pick",
   "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",

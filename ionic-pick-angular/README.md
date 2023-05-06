@@ -135,7 +135,7 @@ Ionic 7+
 
 ```
 
-npm install ionic-pick@1.0.4 --save
+npm install ionic-pick@1.0.5 --save
 
 ```
 
