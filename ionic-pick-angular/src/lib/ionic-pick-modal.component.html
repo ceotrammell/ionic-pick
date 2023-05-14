@@ -29,6 +29,7 @@
     <ion-searchbar *ngIf="selectComponent.canSearch" #searchbarComponent
       [(ngModel)]="selectComponent._searchText"
       (ionChange)="selectComponent._filterItems()"
+      (ionInput)="autoSearch()"
       (ionClear)="selectComponent._onSearchbarClear()"
       [placeholder]="selectComponent.searchPlaceholder"
       [debounce]="selectComponent.searchDebounce">

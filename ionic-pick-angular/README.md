@@ -30,7 +30,7 @@ Thank you for your understanding and support in the development of this package.
 
 
 ```shell
-npm install ionic-pick@1.0.6 --save
+npm install ionic-pick@1.0.7 --save
 ```
 
 
@@ -42,13 +42,6 @@ npm install ionic-pick@1.0.6 --save
 
 
 - Angular Support
-
-
-
-- Stencil Support
-
-
-
 
 
 ## Supported Ionic versions
@@ -219,7 +212,7 @@ Ionic 7+
 
 
 
-npm install ionic-pick@1.0.6 --save
+npm install ionic-pick@1.0.7 --save
 
 
 

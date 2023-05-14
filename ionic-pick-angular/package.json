@@ -1,6 +1,37 @@
 {
   "name": "ionic-pick",
-  "version": "1.0.6",
+  "version": "1.0.7",
+  "license": "MIT",
+  "title": "Ionic Pick",
+  "description": "Ionic Select but better",
+  "author": {
+    "name": "Kyle Trammell",
+    "url": "https://github.com/ceotrammell"
+  },
+  "homepage": "https://github.com/ceotrammell/ionic-pick",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceotrammell/ionic-pick.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ceotrammell/ionic-pick/issues"
+  },
+  "keywords": [
+    "ionic",
+    "ionic 2",
+    "ionic 3",
+    "ionic 4",
+    "ionic 6",
+    "ionic 7",
+    "ion-select",
+    "search",
+    "searchable",
+    "searchbar",
+    "select",
+    "selectable",
+    "pick",
+    "ionic pick"
+  ],
   "dependencies": {
   },
   "peerDependencies": {

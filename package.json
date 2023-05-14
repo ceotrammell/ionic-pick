@@ -1,9 +1,9 @@
 {
   "name": "ionic-pick",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "title": "Ionic Pick",
-  "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",
+  "description": "Ionic Select but better",
   "author": {
     "name": "Kyle Trammell",
     "url": "https://github.com/ceotrammell"

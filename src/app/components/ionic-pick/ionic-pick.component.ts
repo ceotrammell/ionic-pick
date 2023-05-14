@@ -667,6 +667,17 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
   searchDebounce: Number = 250;
 
   /**
+   * Determimes whether or not searching will automatically search. autoSearch is enabled by default and
+   * will trigged based on `searchDebounce` value.
+   * See more on [GitHub](https://github.com/ceotrammell/ionic-pick/wiki/Documentation#autosearch).
+   *
+   * @default true
+   * @memberof IonicPickComponent
+   */
+  @Input()
+  autoSearch: Boolean = true;
+
+  /**
    * A list of items to disable.
    * See more on [GitHub](https://github.com/ceotrammell/ionic-pick/wiki/Documentation#disableditems).
    *
