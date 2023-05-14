@@ -999,6 +999,10 @@ export class IonicPickComponent implements ControlValueAccessor, OnInit, DoCheck
     }
   }
 
+  _autoSearch() {
+    return this.autoSearch ? this._filterItems() : false;
+  }
+
   _isItemDisabled(item: any): boolean {
     if (!this.disabledItems) {
       return true;

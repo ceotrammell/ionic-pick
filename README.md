@@ -30,7 +30,7 @@ Thank you for your understanding and support in the development of this package.
 
 
 ```shell
-npm install ionic-pick@1.0.7 --save
+npm install ionic-pick@1.1.1 --save
 ```
 
 
@@ -212,7 +212,7 @@ Ionic 7+
 
 
 
-npm install ionic-pick@1.0.7 --save
+npm install ionic-pick@1.1.1 --save
 
 
 
@@ -460,7 +460,7 @@ itemTextField="name"
 
 import { IonicSelectableComponent } from 'ionic-selectable'; //Ionic 3-6
 
-import { IonicPickAngularModule } from 'ionic-pick'; //Ionic 7+
+import { IonicPickComponent } from 'ionic-pick'; //Ionic 7+
 
 
 

@@ -1,6 +1,6 @@
 {
   "name": "ionic-pick",
-  "version": "1.0.7",
+  "version": "1.1.1",
   "license": "MIT",
   "title": "Ionic Pick",
   "description": "Ionic Select but better",
@@ -35,7 +35,10 @@
   "dependencies": {
   },
   "peerDependencies": {
-    "@ionic/angular": ">=7.0.0"
+    "@ionic/angular": ">=7.0.0",
+    "@angular/common": ">=15.0.0",
+    "@ionic/core": ">=7.0.0",
+    "rxjs": ">=7.5.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.0",

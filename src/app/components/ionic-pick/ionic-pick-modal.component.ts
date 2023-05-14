@@ -80,8 +80,4 @@ export class IonicPickModalComponent implements AfterViewInit {
     }
   }
 
-  autoSearch() {
-    this.selectComponent.autoSearch ? this.selectComponent._filterItems() : false;
-  }
-
 }
